@@ -232,7 +232,8 @@ namespace Docu.Output.Rendering
         /// <returns></returns>
         public string WriteVersion(Assembly assembly)
         {
-            return assembly.GetName().Version.ToString();
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            return "assembly ver. " + assembly.GetName().Version.ToString() + ", file ver. " + fvi.FileVersion;
         }
 
         /// <summary>
